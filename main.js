@@ -1,22 +1,26 @@
 document.querySelector("#encrypt").addEventListener("click",encrypt);
 document.querySelector("#decrypt").addEventListener("click",decrypt);
-const enc = document.getElementById("inp").value;
-let l = enc.length;
+
+
 function encrypt(){
+let enc = document.getElementById("inp").value;
+let l = enc.length;
     // console.log(enc);
     let res = "";
     let n,x ;
-    for(let i in enc){
-       n = parseInt(enc.charCodeAt(i));
+    for(let i=0;i<l;i++){
+       n = parseInt(enc.charCodeAt(i),10);
        x = n - 27;
        res = res +  x.toString(8)  + "%";
        //console.log(res);
     }
+    console.log(res);
     document.getElementById('res').innerHTML = res;
-    
 }
+
 function decrypt(){
-    
+     let enc = document.getElementById("inp").value;
+     let l = enc.length;
      let finalres = "";
      for(let i=0;i<l;i = i+4){
           let rev = 0;
